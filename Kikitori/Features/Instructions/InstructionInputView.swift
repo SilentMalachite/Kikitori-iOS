@@ -1,8 +1,10 @@
 import SwiftUI
 
 struct InstructionInputView: View {
+    let repository: ChecklistRepository
+
     @State private var draft = InstructionDraft()
-    @State private var showsReview = false
+    @State private var sheet: InputSheet?
     @State private var showsClearConfirmation = false
     @FocusState private var isEditing: Bool
     @ScaledMetric(relativeTo: .body) private var editorHeight = 220
@@ -31,13 +33,23 @@ struct InstructionInputView: View {
                 Section {
                     Button {
                         isEditing = false
-                        showsReview = true
+                        sheet = .review
                     } label: {
                         Label("入力した指示を確認", systemImage: "doc.text.magnifyingglass")
                             .frame(maxWidth: .infinity, minHeight: 44, alignment: .leading)
                     }
                     .disabled(!draft.canReview)
                     .accessibilityIdentifier("reviewInstruction")
+
+                    Button {
+                        isEditing = false
+                        sheet = .checklist(ChecklistDraft(originalText: draft.text))
+                    } label: {
+                        Label("チェックリストを作る", systemImage: "checklist")
+                            .frame(minHeight: 44)
+                    }
+                    .disabled(!draft.canReview)
+                    .accessibilityIdentifier("createChecklist")
 
                     if draft.canUndoClear {
                         Button {
@@ -60,17 +72,31 @@ struct InstructionInputView: View {
                         .accessibilityIdentifier("clearInstruction")
                     }
                 } footer: {
-                    Text("入力内容はまだ保存されません。アプリを終了すると失われます。")
+                    Text("チェックリスト画面で保存すると、入力した原文も履歴に残ります。")
                 }
             }
             .navigationTitle("指示を入力")
             .scrollDismissesKeyboard(.interactively)
-            .toolbar {
-                ToolbarItemGroup(placement: .keyboard) {
-                    Spacer()
-                    Button("入力を終える") {
+            .safeAreaInset(edge: .bottom, spacing: 0) {
+                if isEditing {
+                    Button {
                         isEditing = false
+                    } label: {
+                        Text("入力を終える")
+                            .padding(.horizontal)
+                            .frame(minHeight: 44)
+                            .contentShape(Rectangle())
                     }
+                    .frame(maxWidth: .infinity, alignment: .trailing)
+                    .background(.bar)
+                }
+            }
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    NavigationLink("履歴") {
+                        ChecklistHistoryView(repository: repository)
+                    }
+                    .accessibilityIdentifier("openChecklistHistory")
                 }
             }
             .alert("入力した文章を消しますか？", isPresented: $showsClearConfirmation) {
@@ -82,15 +108,33 @@ struct InstructionInputView: View {
             } message: {
                 Text("消したあとに「消した文章を元に戻す」を押すと復元できます。新しく入力すると復元できなくなります。")
             }
-            .sheet(isPresented: $showsReview) {
-                InstructionReviewView(text: draft.text)
+            .sheet(item: $sheet) { presented in
+                switch presented {
+                case .review:
+                    InstructionReviewView(text: draft.text)
+                case .checklist(let checklist):
+                    ChecklistEditorView(draft: checklist, repository: repository)
+                }
+            }
+        }
+    }
+
+    private enum InputSheet: Identifiable {
+        case review
+        case checklist(ChecklistDraft)
+
+        var id: String {
+            switch self {
+            case .review: "review"
+            case .checklist(let checklist): checklist.id.uuidString
             }
         }
     }
 }
 
-private struct InstructionReviewView: View {
+struct InstructionReviewView: View {
     let text: String
+    var returnTitle = "入力に戻る"
     @Environment(\.dismiss) private var dismiss
 
     var body: some View {
@@ -106,7 +150,7 @@ private struct InstructionReviewView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .accessibilityIdentifier("originalInstruction")
 
-                    Button("入力に戻る") {
+                    Button(returnTitle) {
                         dismiss()
                     }
                     .buttonStyle(.borderedProminent)

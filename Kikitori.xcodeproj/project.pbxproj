@@ -7,10 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		101CF2A603E79A74E58ECC51 /* InstructionParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E033C54FA44C985DC5F04131 /* InstructionParserTests.swift */; };
+		10D7715C95EEDD47D775F14F /* ChecklistRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E64F5D7912746528DC2F16 /* ChecklistRepositoryTests.swift */; };
 		3077D9F74B3C15C76C455512 /* InstructionInputUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2731B6C0C5EFBFCDF0197223 /* InstructionInputUITests.swift */; };
+		5A02864D05B4115EFD1C3D90 /* ChecklistHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462A31F535DCA68CE1852AA7 /* ChecklistHistoryView.swift */; };
 		61992F59B8D0F74B32A8521D /* InstructionDraftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387F2E0DB9D4D195CA383A13 /* InstructionDraftTests.swift */; };
+		8A51D118BA88F6AE8D6CB4FD /* ChecklistRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD4BF3D9493D59F87157C71 /* ChecklistRepository.swift */; };
 		AA963CDB8AC452D59742F7F6 /* KikitoriApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991D4017889FCE06692CCF4C /* KikitoriApp.swift */; };
 		BD38FEF198C12BAB4EAD56A3 /* InstructionDraft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486CAD4966C15EF471398C77 /* InstructionDraft.swift */; };
+		C39EC1F3612B355BF1EF7CFC /* InstructionParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9B5869CF8305071DAABFB3 /* InstructionParser.swift */; };
+		D6BA2EDB3D988D8997234F18 /* ChecklistEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF87BD4820A96474468E199 /* ChecklistEditorView.swift */; };
+		DEFEDD74BC0D384DE9E2FC5D /* ChecklistDraft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFC687B6AD7C1AAB48D0B12 /* ChecklistDraft.swift */; };
 		E41D5C0C47E89246A2B82D48 /* InstructionInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3BC51684CA3DED5F2C1CB7 /* InstructionInputView.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,13 +41,20 @@
 /* Begin PBXFileReference section */
 		2731B6C0C5EFBFCDF0197223 /* InstructionInputUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionInputUITests.swift; sourceTree = "<group>"; };
 		387F2E0DB9D4D195CA383A13 /* InstructionDraftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionDraftTests.swift; sourceTree = "<group>"; };
+		462A31F535DCA68CE1852AA7 /* ChecklistHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistHistoryView.swift; sourceTree = "<group>"; };
 		486CAD4966C15EF471398C77 /* InstructionDraft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionDraft.swift; sourceTree = "<group>"; };
 		4A3BC51684CA3DED5F2C1CB7 /* InstructionInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionInputView.swift; sourceTree = "<group>"; };
+		4C9B5869CF8305071DAABFB3 /* InstructionParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionParser.swift; sourceTree = "<group>"; };
+		6EFC687B6AD7C1AAB48D0B12 /* ChecklistDraft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistDraft.swift; sourceTree = "<group>"; };
+		7AF87BD4820A96474468E199 /* ChecklistEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistEditorView.swift; sourceTree = "<group>"; };
 		7DE606B2070961DED19AF7ED /* Kikitori.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Kikitori.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		86E64F5D7912746528DC2F16 /* ChecklistRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistRepositoryTests.swift; sourceTree = "<group>"; };
 		8A8F19A073BFEFA647D7BB7A /* KikitoriTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = KikitoriTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		991D4017889FCE06692CCF4C /* KikitoriApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KikitoriApp.swift; sourceTree = "<group>"; };
 		AFC1DAAD18ED57B8BCE37707 /* KikitoriUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = KikitoriUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C303381AC58BAA6A73258531 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E033C54FA44C985DC5F04131 /* InstructionParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionParserTests.swift; sourceTree = "<group>"; };
+		ECD4BF3D9493D59F87157C71 /* ChecklistRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -57,6 +71,7 @@
 		16AD7767EA8CE44933D87ABF /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				DFE1F4F6386642EDBA034961 /* Checklists */,
 				C6F954222E5AAAA143A6BDAA /* Instructions */,
 			);
 			path = Features;
@@ -65,7 +80,9 @@
 		5A1C60247F1B788D7F340BCC /* KikitoriTests */ = {
 			isa = PBXGroup;
 			children = (
+				86E64F5D7912746528DC2F16 /* ChecklistRepositoryTests.swift */,
 				387F2E0DB9D4D195CA383A13 /* InstructionDraftTests.swift */,
+				E033C54FA44C985DC5F04131 /* InstructionParserTests.swift */,
 			);
 			path = KikitoriTests;
 			sourceTree = "<group>";
@@ -111,8 +128,20 @@
 			children = (
 				486CAD4966C15EF471398C77 /* InstructionDraft.swift */,
 				4A3BC51684CA3DED5F2C1CB7 /* InstructionInputView.swift */,
+				4C9B5869CF8305071DAABFB3 /* InstructionParser.swift */,
 			);
 			path = Instructions;
+			sourceTree = "<group>";
+		};
+		DFE1F4F6386642EDBA034961 /* Checklists */ = {
+			isa = PBXGroup;
+			children = (
+				6EFC687B6AD7C1AAB48D0B12 /* ChecklistDraft.swift */,
+				7AF87BD4820A96474468E199 /* ChecklistEditorView.swift */,
+				462A31F535DCA68CE1852AA7 /* ChecklistHistoryView.swift */,
+				ECD4BF3D9493D59F87157C71 /* ChecklistRepository.swift */,
+			);
+			path = Checklists;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,7 +247,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10D7715C95EEDD47D775F14F /* ChecklistRepositoryTests.swift in Sources */,
 				61992F59B8D0F74B32A8521D /* InstructionDraftTests.swift in Sources */,
+				101CF2A603E79A74E58ECC51 /* InstructionParserTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,8 +265,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEFEDD74BC0D384DE9E2FC5D /* ChecklistDraft.swift in Sources */,
+				D6BA2EDB3D988D8997234F18 /* ChecklistEditorView.swift in Sources */,
+				5A02864D05B4115EFD1C3D90 /* ChecklistHistoryView.swift in Sources */,
+				8A51D118BA88F6AE8D6CB4FD /* ChecklistRepository.swift in Sources */,
 				BD38FEF198C12BAB4EAD56A3 /* InstructionDraft.swift in Sources */,
 				E41D5C0C47E89246A2B82D48 /* InstructionInputView.swift in Sources */,
+				C39EC1F3612B355BF1EF7CFC /* InstructionParser.swift in Sources */,
 				AA963CDB8AC452D59742F7F6 /* KikitoriApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

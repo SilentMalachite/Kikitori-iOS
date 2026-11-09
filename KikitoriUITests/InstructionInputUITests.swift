@@ -58,4 +58,61 @@ final class InstructionInputUITests: XCTestCase {
         app.buttons["undoClear"].tap()
         XCTAssertEqual(editor.value as? String, original)
     }
+
+    @MainActor
+    func testChecklistSourceAndEditsSurviveRelaunch() throws {
+        let app = XCUIApplication()
+        app.launch()
+
+        let marker = UUID().uuidString.prefix(6)
+        let original = "適当に整理しておいてください \(marker)"
+        let editor = app.textViews["instructionEditor"]
+        XCTAssertTrue(editor.waitForExistence(timeout: 5))
+        editor.tap()
+        editor.typeText(original)
+        app.buttons["入力を終える"].tap()
+        app.buttons["createChecklist"].tap()
+
+        let reason = app.staticTexts["checklistReviewReason"]
+        XCTAssertTrue(reason.waitForExistence(timeout: 5))
+        XCTAssertTrue(reason.label.contains("要確認"))
+        app.buttons["reviewChecklistOriginal"].tap()
+        XCTAssertEqual(app.staticTexts["originalInstruction"].label, original)
+        app.buttons["returnToInput"].tap()
+
+        app.buttons["editChecklistItem"].tap()
+        XCTAssertEqual(app.staticTexts["checklistItemSource"].label, original)
+        let itemText = app.descendants(matching: .any)["checklistItemText"].firstMatch
+        itemText.tap()
+        itemText.typeText("追記")
+        app.buttons["applyChecklistItem"].tap()
+
+        let completion = app.buttons["checklistItemCompletion"]
+        XCTAssertTrue(completion.label.contains("追記"))
+        completion.tap()
+        XCTAssertEqual(completion.value as? String, "完了")
+        let progress = app.staticTexts["checklistProgress"]
+        XCTAssertTrue(progress.label.contains("1/1"), progress.label)
+        app.buttons["saveChecklist"].tap()
+        XCTAssertEqual(app.staticTexts["checklistSaveState"].label, "保存済み")
+
+        app.terminate()
+        app.launch()
+        app.buttons["openChecklistHistory"].tap()
+        let saved = app.buttons.matching(identifier: "savedChecklist")
+            .matching(NSPredicate(format: "label CONTAINS %@", String(marker))).firstMatch
+        XCTAssertTrue(saved.waitForExistence(timeout: 5))
+        saved.tap()
+        XCTAssertTrue(progress.label.contains("1/1"), progress.label)
+        XCTAssertTrue(completion.label.contains("追記"))
+        app.buttons["editChecklistItem"].tap()
+        XCTAssertEqual(app.staticTexts["checklistItemSource"].label, original)
+        app.buttons["キャンセル"].tap()
+        app.buttons["closeChecklist"].tap()
+
+        saved.swipeLeft()
+        app.buttons["削除"].tap()
+        app.alerts.buttons["削除"].tap()
+        XCTAssertFalse(saved.exists)
+    }
 }
