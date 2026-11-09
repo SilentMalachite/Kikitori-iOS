@@ -7,7 +7,7 @@ final class InstructionInputUITests: XCTestCase {
 
     @MainActor
     func testJapaneseInputCanBeReviewedAndEdited() throws {
-        let app = XCUIApplication()
+        let app = makeApp()
         app.launch()
 
         let review = app.buttons["reviewInstruction"]
@@ -38,7 +38,7 @@ final class InstructionInputUITests: XCTestCase {
 
     @MainActor
     func testClearRequiresConfirmationAndCanBeUndone() throws {
-        let app = XCUIApplication()
+        let app = makeApp()
         app.launch()
 
         let editor = app.textViews["instructionEditor"]
@@ -61,7 +61,7 @@ final class InstructionInputUITests: XCTestCase {
 
     @MainActor
     func testChecklistSourceAndEditsSurviveRelaunch() throws {
-        let app = XCUIApplication()
+        let app = makeApp()
         app.launch()
 
         let marker = UUID().uuidString.prefix(6)
@@ -113,6 +113,13 @@ final class InstructionInputUITests: XCTestCase {
         saved.swipeLeft()
         app.buttons["削除"].tap()
         app.alerts.buttons["削除"].tap()
-        XCTAssertFalse(saved.exists)
+        XCTAssertTrue(saved.waitForNonExistence(timeout: 5))
+    }
+
+    @MainActor
+    private func makeApp() -> XCUIApplication {
+        let app = XCUIApplication()
+        app.launchEnvironment["KIKITORI_UI_TEST_STORE_ID"] = UUID().uuidString
+        return app
     }
 }

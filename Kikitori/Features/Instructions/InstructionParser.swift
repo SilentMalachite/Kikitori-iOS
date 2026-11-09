@@ -48,7 +48,7 @@ enum InstructionParser {
                 verbs.contains { sentence.hasSuffix($0.0 + "ください") }
                     || sentence.hasSuffix("ないでください")
             )
-            return keepOriginal(isSimpleRequest || isScopedRequest ? nil : "どの作業を行うか確認してください。")
+            return keepOriginal(isSimpleRequest || isScopedRequest ? nil : "自動で整理できないため、原文のまま表示しています。")
         }
 
         if hasScope {

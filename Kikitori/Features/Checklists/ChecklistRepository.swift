@@ -26,6 +26,13 @@ final class SavedChecklist {
     }
 }
 
+struct ChecklistHistoryEntry: Identifiable {
+    let id: UUID
+    let createdAt: Date
+    let originalText: String
+    let draft: ChecklistDraft?
+}
+
 @MainActor
 final class ChecklistRepository {
     private let configuration: ModelConfiguration
@@ -35,9 +42,16 @@ final class ChecklistRepository {
         self.configuration = configuration
     }
 
-    func loadAll() throws -> [ChecklistDraft] {
+    func loadAll() throws -> [ChecklistHistoryEntry] {
         let descriptor = FetchDescriptor<SavedChecklist>(sortBy: [SortDescriptor(\.createdAt, order: .reverse)])
-        return try makeContext().fetch(descriptor).map { try $0.makeDraft() }
+        return try makeContext().fetch(descriptor).map { saved in
+            ChecklistHistoryEntry(
+                id: saved.id,
+                createdAt: saved.createdAt,
+                originalText: saved.originalText,
+                draft: try? saved.makeDraft()
+            )
+        }
     }
 
     func save(_ draft: ChecklistDraft) throws {

@@ -3,9 +3,9 @@ import SwiftUI
 struct ChecklistHistoryView: View {
     let repository: ChecklistRepository
 
-    @State private var saved: [ChecklistDraft] = []
-    @State private var editing: ChecklistDraft?
-    @State private var deleting: ChecklistDraft?
+    @State private var saved: [ChecklistHistoryEntry] = []
+    @State private var sheet: HistorySheet?
+    @State private var deleting: ChecklistHistoryEntry?
     @State private var loadFailed = false
     @State private var deleteFailed = false
 
@@ -21,29 +21,42 @@ struct ChecklistHistoryView: View {
                     description: Text("チェックリストを保存すると、ここから開けます。")
                 )
             } else {
-                ForEach(saved) { draft in
+                ForEach(saved) { entry in
                     Button {
-                        editing = draft
+                        if let draft = entry.draft {
+                            sheet = .checklist(draft)
+                        } else {
+                            sheet = .original(entry)
+                        }
                     } label: {
                         VStack(alignment: .leading, spacing: 4) {
-                            Text(draft.originalText)
+                            Text(entry.originalText)
                                 .lineLimit(2)
-                            Text(draft.createdAt, format: .dateTime.year().month().day().hour().minute())
-                            Text("\(draft.completedCount)/\(draft.items.count)件完了")
+                            Text(entry.createdAt, format: .dateTime.year().month().day().hour().minute())
+                            if let draft = entry.draft {
+                                Text("\(draft.completedCount)/\(draft.items.count)件完了")
+                            } else {
+                                Text("項目を読み込めません。元の指示を確認できます。")
+                            }
                         }
                         .frame(minHeight: 44, alignment: .leading)
                     }
-                    .accessibilityIdentifier("savedChecklist")
+                    .accessibilityIdentifier(entry.draft == nil ? "unreadableChecklist" : "savedChecklist")
                     .swipeActions(allowsFullSwipe: false) {
-                        Button("削除", role: .destructive) { deleting = draft }
+                        Button("削除", role: .destructive) { deleting = entry }
                     }
                 }
             }
         }
         .navigationTitle("履歴")
         .onAppear(perform: reload)
-        .sheet(item: $editing, onDismiss: reload) { draft in
-            ChecklistEditorView(draft: draft, repository: repository, isSaved: true)
+        .sheet(item: $sheet, onDismiss: reload) { presented in
+            switch presented {
+            case .checklist(let draft):
+                ChecklistEditorView(draft: draft, repository: repository, isSaved: true)
+            case .original(let entry):
+                InstructionReviewView(text: entry.originalText, returnTitle: "履歴に戻る")
+            }
         }
         .alert("保存したチェックリストを削除しますか？", isPresented: Binding(
             get: { deleting != nil },
@@ -71,6 +84,18 @@ struct ChecklistHistoryView: View {
             loadFailed = false
         } catch {
             loadFailed = true
+        }
+    }
+
+    private enum HistorySheet: Identifiable {
+        case checklist(ChecklistDraft)
+        case original(ChecklistHistoryEntry)
+
+        var id: UUID {
+            switch self {
+            case .checklist(let draft): draft.id
+            case .original(let entry): entry.id
+            }
         }
     }
 }

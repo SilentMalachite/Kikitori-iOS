@@ -45,4 +45,17 @@ struct InstructionParserTests {
         #expect(item.sourceText == original)
         #expect(item.reviewReason != nil)
     }
+
+    @Test("分割しない明確な指示には原文表示の理由を伝える", arguments: [
+        "職員に報告してください",
+        "棚に戻してください"
+    ])
+    func explainsUnrecognizedForm(_ original: String) throws {
+        let items = InstructionParser.parse(original)
+        #expect(items.count == 1)
+        let item = try #require(items.first)
+        #expect(item.text == original)
+        #expect(item.sourceText == original)
+        #expect(item.reviewReason == "自動で整理できないため、原文のまま表示しています。")
+    }
 }

@@ -72,7 +72,7 @@ struct InstructionInputView: View {
                         .accessibilityIdentifier("clearInstruction")
                     }
                 } footer: {
-                    Text("チェックリスト画面で保存すると、入力した原文も履歴に残ります。")
+                    Text("入力中の文章は、アプリを終了すると失われます。チェックリスト画面で保存すると、原文も履歴に残ります。")
                 }
             }
             .navigationTitle("指示を入力")

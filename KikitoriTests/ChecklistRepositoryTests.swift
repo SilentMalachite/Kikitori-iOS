@@ -23,7 +23,7 @@ struct ChecklistRepositoryTests {
         }
 
         let reopened = ChecklistRepository(configuration: configuration)
-        let saved = try reopened.loadAll()
+        let saved = try reopened.loadAll().map { try #require($0.draft) }
         #expect(saved.count == 1)
         var restored = try #require(saved.first)
         #expect(restored.id == draft.id)
@@ -38,7 +38,7 @@ struct ChecklistRepositoryTests {
         try reopened.save(restored)
         try reopened.save(ChecklistDraft(originalText: original))
 
-        let afterRegeneration = try reopened.loadAll()
+        let afterRegeneration = try reopened.loadAll().map { try #require($0.draft) }
         #expect(afterRegeneration.count == 2)
         let updated = try #require(afterRegeneration.first { $0.id == restored.id })
         #expect(updated.items == restored.items)
@@ -65,9 +65,41 @@ struct ChecklistRepositoryTests {
         draft.items[0].text = "確認した内容を整理する"
         #expect(throws: (any Error).self) { try readOnly.save(draft) }
         #expect(draft.items[0].text == "確認した内容を整理する")
-        let saved = try readOnly.loadAll()
+        let saved = try readOnly.loadAll().map { try #require($0.draft) }
         #expect(saved.first?.items == [originalItem])
         #expect(saved.first?.items.first?.reviewReason != nil)
+    }
+
+    @Test("壊れた項目があっても他の履歴を開け、壊れた履歴を削除できる")
+    func unreadableRecordDoesNotHideOtherHistory() throws {
+        let directory = try makeTemporaryDirectory()
+        defer { try? FileManager.default.removeItem(at: directory) }
+        let configuration = ModelConfiguration(url: directory.appendingPathComponent("checklists.store"), cloudKitDatabase: .none)
+        let valid = ChecklistDraft(originalText: "書類を並べて、番号を確認してください")
+        let unreadable = ChecklistDraft(originalText: "棚に戻してください")
+        do {
+            let container = try ModelContainer(for: SavedChecklist.self, configurations: configuration)
+            let context = ModelContext(container)
+            context.insert(SavedChecklist(draft: valid, encodedItems: try JSONEncoder().encode(valid.items)))
+            context.insert(SavedChecklist(draft: unreadable, encodedItems: Data("invalid JSON".utf8)))
+            try context.save()
+        }
+
+        let repository = ChecklistRepository(configuration: configuration)
+        let history = try repository.loadAll()
+        #expect(history.count == 2)
+        let readableEntry = try #require(history.first { $0.id == valid.id })
+        #expect(readableEntry.draft?.items == valid.items)
+        let unreadableEntry = try #require(history.first { $0.id == unreadable.id })
+        #expect(unreadableEntry.draft == nil)
+        #expect(unreadableEntry.originalText == unreadable.originalText)
+        #expect(unreadableEntry.createdAt == unreadable.createdAt)
+
+        try repository.delete(unreadableEntry.id)
+        let remaining = try repository.loadAll()
+        #expect(remaining.count == 1)
+        #expect(remaining.first?.id == valid.id)
+        #expect(remaining.first?.draft?.items == valid.items)
     }
 
     private func makeTemporaryDirectory() throws -> URL {
