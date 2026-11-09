@@ -1,0 +1,534 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3077D9F74B3C15C76C455512 /* InstructionInputUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2731B6C0C5EFBFCDF0197223 /* InstructionInputUITests.swift */; };
+		61992F59B8D0F74B32A8521D /* InstructionDraftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387F2E0DB9D4D195CA383A13 /* InstructionDraftTests.swift */; };
+		AA963CDB8AC452D59742F7F6 /* KikitoriApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991D4017889FCE06692CCF4C /* KikitoriApp.swift */; };
+		BD38FEF198C12BAB4EAD56A3 /* InstructionDraft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486CAD4966C15EF471398C77 /* InstructionDraft.swift */; };
+		E41D5C0C47E89246A2B82D48 /* InstructionInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3BC51684CA3DED5F2C1CB7 /* InstructionInputView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0B9EBA96DF40042A3A8C3BDD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 90D041CD598265BDCFFDC357 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3BBD190D8A84F5E1ADCE840C;
+			remoteInfo = Kikitori;
+		};
+		C6B66281C3A3524A92337E32 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 90D041CD598265BDCFFDC357 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3BBD190D8A84F5E1ADCE840C;
+			remoteInfo = Kikitori;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2731B6C0C5EFBFCDF0197223 /* InstructionInputUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionInputUITests.swift; sourceTree = "<group>"; };
+		387F2E0DB9D4D195CA383A13 /* InstructionDraftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionDraftTests.swift; sourceTree = "<group>"; };
+		486CAD4966C15EF471398C77 /* InstructionDraft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionDraft.swift; sourceTree = "<group>"; };
+		4A3BC51684CA3DED5F2C1CB7 /* InstructionInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionInputView.swift; sourceTree = "<group>"; };
+		7DE606B2070961DED19AF7ED /* Kikitori.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Kikitori.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A8F19A073BFEFA647D7BB7A /* KikitoriTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = KikitoriTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		991D4017889FCE06692CCF4C /* KikitoriApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KikitoriApp.swift; sourceTree = "<group>"; };
+		AFC1DAAD18ED57B8BCE37707 /* KikitoriUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = KikitoriUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C303381AC58BAA6A73258531 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		14FF364AC714370150B90316 = {
+			isa = PBXGroup;
+			children = (
+				68D744B6140B2F581A404CDE /* Kikitori */,
+				5A1C60247F1B788D7F340BCC /* KikitoriTests */,
+				7E88823F7D77D6DBEF39393F /* KikitoriUITests */,
+				9B78669CBE23CFE95BD920DD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		16AD7767EA8CE44933D87ABF /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				C6F954222E5AAAA143A6BDAA /* Instructions */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		5A1C60247F1B788D7F340BCC /* KikitoriTests */ = {
+			isa = PBXGroup;
+			children = (
+				387F2E0DB9D4D195CA383A13 /* InstructionDraftTests.swift */,
+			);
+			path = KikitoriTests;
+			sourceTree = "<group>";
+		};
+		68D744B6140B2F581A404CDE /* Kikitori */ = {
+			isa = PBXGroup;
+			children = (
+				C303381AC58BAA6A73258531 /* Info.plist */,
+				82A01B697DCBD132F0673013 /* App */,
+				16AD7767EA8CE44933D87ABF /* Features */,
+			);
+			path = Kikitori;
+			sourceTree = "<group>";
+		};
+		7E88823F7D77D6DBEF39393F /* KikitoriUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2731B6C0C5EFBFCDF0197223 /* InstructionInputUITests.swift */,
+			);
+			path = KikitoriUITests;
+			sourceTree = "<group>";
+		};
+		82A01B697DCBD132F0673013 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				991D4017889FCE06692CCF4C /* KikitoriApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		9B78669CBE23CFE95BD920DD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7DE606B2070961DED19AF7ED /* Kikitori.app */,
+				8A8F19A073BFEFA647D7BB7A /* KikitoriTests.xctest */,
+				AFC1DAAD18ED57B8BCE37707 /* KikitoriUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C6F954222E5AAAA143A6BDAA /* Instructions */ = {
+			isa = PBXGroup;
+			children = (
+				486CAD4966C15EF471398C77 /* InstructionDraft.swift */,
+				4A3BC51684CA3DED5F2C1CB7 /* InstructionInputView.swift */,
+			);
+			path = Instructions;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3BBD190D8A84F5E1ADCE840C /* Kikitori */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 11B65ACC7BF1CABBD24961A8 /* Build configuration list for PBXNativeTarget "Kikitori" */;
+			buildPhases = (
+				BEE22536713F24F788998136 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Kikitori;
+			packageProductDependencies = (
+			);
+			productName = Kikitori;
+			productReference = 7DE606B2070961DED19AF7ED /* Kikitori.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5F30879DD9540DB9DF43E778 /* KikitoriTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 34D426015780A4FAA4C7B3BF /* Build configuration list for PBXNativeTarget "KikitoriTests" */;
+			buildPhases = (
+				1A4543B3C4EDF91BF41A6D00 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B9039F774983B7384E9190A2 /* PBXTargetDependency */,
+			);
+			name = KikitoriTests;
+			packageProductDependencies = (
+			);
+			productName = KikitoriTests;
+			productReference = 8A8F19A073BFEFA647D7BB7A /* KikitoriTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		93AC25AA2C011573DC93AB84 /* KikitoriUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D7367ED31442EE3795A6A20 /* Build configuration list for PBXNativeTarget "KikitoriUITests" */;
+			buildPhases = (
+				4FD3DCEBE17A6B1FDC93953B /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AFCE34A637DD50773BE658FB /* PBXTargetDependency */,
+			);
+			name = KikitoriUITests;
+			packageProductDependencies = (
+			);
+			productName = KikitoriUITests;
+			productReference = AFC1DAAD18ED57B8BCE37707 /* KikitoriUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		90D041CD598265BDCFFDC357 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					3BBD190D8A84F5E1ADCE840C = {
+						ProvisioningStyle = Automatic;
+					};
+					5F30879DD9540DB9DF43E778 = {
+						ProvisioningStyle = Automatic;
+					};
+					93AC25AA2C011573DC93AB84 = {
+						ProvisioningStyle = Automatic;
+						TestTargetID = 3BBD190D8A84F5E1ADCE840C;
+					};
+				};
+			};
+			buildConfigurationList = FD86BC1DA0454B23DCE2FCB0 /* Build configuration list for PBXProject "Kikitori" */;
+			developmentRegion = ja;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				ja,
+			);
+			mainGroup = 14FF364AC714370150B90316;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 9B78669CBE23CFE95BD920DD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3BBD190D8A84F5E1ADCE840C /* Kikitori */,
+				5F30879DD9540DB9DF43E778 /* KikitoriTests */,
+				93AC25AA2C011573DC93AB84 /* KikitoriUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1A4543B3C4EDF91BF41A6D00 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61992F59B8D0F74B32A8521D /* InstructionDraftTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4FD3DCEBE17A6B1FDC93953B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3077D9F74B3C15C76C455512 /* InstructionInputUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEE22536713F24F788998136 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD38FEF198C12BAB4EAD56A3 /* InstructionDraft.swift in Sources */,
+				E41D5C0C47E89246A2B82D48 /* InstructionInputView.swift in Sources */,
+				AA963CDB8AC452D59742F7F6 /* KikitoriApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AFCE34A637DD50773BE658FB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3BBD190D8A84F5E1ADCE840C /* Kikitori */;
+			targetProxy = 0B9EBA96DF40042A3A8C3BDD /* PBXContainerItemProxy */;
+		};
+		B9039F774983B7384E9190A2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3BBD190D8A84F5E1ADCE840C /* Kikitori */;
+			targetProxy = C6B66281C3A3524A92337E32 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		172D76C6C5DB6CAF0A1CADAC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.kikitori.ios.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Kikitori.app/Kikitori";
+			};
+			name = Debug;
+		};
+		1ACBF0A85D35A11345B5CDDB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 0.1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+		5CDB18001B9A776176B51AC7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.kikitori.ios.uitests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_TARGET_NAME = Kikitori;
+			};
+			name = Release;
+		};
+		8B23DF98D654280D10B8D969 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Kikitori/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.kikitori.ios;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		9A39B06A53BF1AB3BB641905 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Kikitori/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.kikitori.ios;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		B2BB50767A5EFC8278DCFA55 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.kikitori.ios.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Kikitori.app/Kikitori";
+			};
+			name = Release;
+		};
+		E50A9DC11F714E01E4D41CAC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.kikitori.ios.uitests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_TARGET_NAME = Kikitori;
+			};
+			name = Debug;
+		};
+		F2162DEBC94A471589984456 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 0.1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		11B65ACC7BF1CABBD24961A8 /* Build configuration list for PBXNativeTarget "Kikitori" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9A39B06A53BF1AB3BB641905 /* Debug */,
+				8B23DF98D654280D10B8D969 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		2D7367ED31442EE3795A6A20 /* Build configuration list for PBXNativeTarget "KikitoriUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E50A9DC11F714E01E4D41CAC /* Debug */,
+				5CDB18001B9A776176B51AC7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		34D426015780A4FAA4C7B3BF /* Build configuration list for PBXNativeTarget "KikitoriTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				172D76C6C5DB6CAF0A1CADAC /* Debug */,
+				B2BB50767A5EFC8278DCFA55 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		FD86BC1DA0454B23DCE2FCB0 /* Build configuration list for PBXProject "Kikitori" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F2162DEBC94A471589984456 /* Debug */,
+				1ACBF0A85D35A11345B5CDDB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 90D041CD598265BDCFFDC357 /* Project object */;
+}

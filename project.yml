@@ -1,0 +1,84 @@
+name: Kikitori
+options:
+  minimumXcodeGenVersion: 2.46.0
+  deploymentTarget:
+    iOS: "18.0"
+  developmentLanguage: ja
+  knownRegions: [ja, en, Base]
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    SUPPORTS_MACCATALYST: NO
+    SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: NO
+    SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD: NO
+    CODE_SIGN_STYLE: Automatic
+    MARKETING_VERSION: "0.1.0"
+    CURRENT_PROJECT_VERSION: "1"
+targets:
+  Kikitori:
+    type: application
+    platform: iOS
+    sources:
+      - path: Kikitori
+    info:
+      path: Kikitori/Info.plist
+      properties:
+        CFBundleDisplayName: Kikitori
+        CFBundleDevelopmentRegion: ja
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        LSRequiresIPhoneOS: true
+        UILaunchScreen: {}
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: false
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+        NSMicrophoneUsageDescription: 作業の指示を文字にするために、録音開始を押したときだけマイクを使用します。
+        NSSpeechRecognitionUsageDescription: 作業の指示を端末内で文字に変換するために音声認識を使用します。端末内で認識できない場合は録音しません。
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.kikitori.ios
+        TARGETED_DEVICE_FAMILY: "1"
+        ENABLE_PREVIEWS: YES
+  KikitoriTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: KikitoriTests
+    dependencies:
+      - target: Kikitori
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.kikitori.ios.tests
+        TARGETED_DEVICE_FAMILY: "1"
+        GENERATE_INFOPLIST_FILE: YES
+  KikitoriUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - path: KikitoriUITests
+    dependencies:
+      - target: Kikitori
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.kikitori.ios.uitests
+        TARGETED_DEVICE_FAMILY: "1"
+        GENERATE_INFOPLIST_FILE: YES
+schemes:
+  Kikitori:
+    build:
+      targets:
+        Kikitori: all
+    run:
+      config: Debug
+    test:
+      config: Debug
+      gatherCoverageData: true
+      targets:
+        - KikitoriTests
+        - KikitoriUITests
+    archive:
+      config: Release
+
